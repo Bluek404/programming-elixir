@@ -141,7 +141,6 @@ Elixir支持字符串插值（语法类似ruby）：
 iex> "hellö #{:world}"
 "hellö world"
 ```
-<br/>
 
 字符串可以直接包含换行符，或者其转义字符：
 ```
