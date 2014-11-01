@@ -108,7 +108,26 @@ iex> true == :true
 true
 iex> is_atom(false)
 true
+```  
+
+此外原子也支持`:"原子名"`的方式   
+大写字母开头的"变量"实际是`:"Elixir.变量名"`的别名:    
 ```
+iex> Hello == :"Elixir.Hello"
+true
+```
+但如果这个别名已经有Elixir.前缀了 那么就不会再有`Elixir`前缀了:
+```
+iex> Elixir.Hello == :"Elixir.Hello"
+true
+```
+模块调用其实也是使用到了这种原子别名:  
+```
+iex> IO == :"Elixir.IO"
+true
+iex> :"Elixir.IO".puts "an atom"
+an atom  
+```  
 
 ## 2.4-字符串
 在Elixir中，字符串以**双括号**包裹，采用UTF-8编码：
