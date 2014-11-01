@@ -101,7 +101,9 @@ iex> 40 + 2
 iex> "hello" <> " world"
 "hello world"
 ```
-对这种交互式命令行，相信熟悉ruby，python等动态语言的程序员一定不会陌生。
+对这种交互式命令行，相信熟悉ruby，python等动态语言的程序员一定不会陌生。  
+
+可以使用ctrl+c或者```System.halt```退出```iex```
 
 ## 1.7-执行脚本
 把表达式写进脚本文件，可以用```elixir```命令执行它。如：
