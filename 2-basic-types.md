@@ -108,7 +108,26 @@ iex> true == :true
 true
 iex> is_atom(false)
 true
+```  
+
+此外原子也支持`:"原子名"`的方式   
+大写字母开头的"变量"实际是`:"Elixir.变量名"`的别名:    
 ```
+iex> Hello == :"Elixir.Hello"
+true
+```
+但如果这个别名已经有Elixir.前缀了 那么就不会再有`Elixir`前缀了:
+```
+iex> Elixir.Hello == :"Elixir.Hello"
+true
+```
+模块调用其实也是使用到了这种原子别名:  
+```
+iex> IO == :"Elixir.IO"
+true
+iex> :"Elixir.IO".puts "an atom"
+an atom  
+```  
 
 ## 2.4-字符串
 在Elixir中，字符串以**双括号**包裹，采用UTF-8编码：
@@ -122,7 +141,6 @@ Elixir支持字符串插值（语法类似ruby）：
 iex> "hellö #{:world}"
 "hellö world"
 ```
-<br/>
 
 字符串可以直接包含换行符，或者其转义字符：
 ```
@@ -224,6 +242,7 @@ iex> [1, 2, true, 3]
 iex> length [1, 2, 3]
 3
 ```
+对于列表的大多数操作复杂度是O(n)(使用```Enum.at/2```取值 ```++```等操作)  
 
 两个列表可以使用```++/2```拼接，使用```--/2```做“减法”：
 ```
@@ -231,6 +250,13 @@ iex> [1, 2, 3] ++ [4, 5, 6]
 [1, 2, 3, 4, 5, 6]
 iex> [1, true, 2, false, 3, true] -- [true, false]
 [1, 2, 3, true]
+```  
+对于元素是否在列表中,可以用```in```判断:
+```
+iex> 1 in [1, 2, 3]
+true
+iex> 4 in [1, 2, 3]
+false
 ```
 
 本教程将多次涉及列表的头（head）和尾（tail）的概念。
